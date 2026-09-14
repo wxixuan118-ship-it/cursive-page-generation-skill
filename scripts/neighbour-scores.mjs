@@ -29,7 +29,7 @@ for (const entry of from) {
   // Prefer the page's own config keyword when the page came out of this pipeline.
   const cfgPath = path.join(root, 'scripts', 'page-configs', file.replace(/\.html$/, '.json'));
   const cfgKw = fs.existsSync(cfgPath) ? JSON.parse(fs.readFileSync(cfgPath, 'utf8')).keyword : null;
-  const fromH1 = h1.replace(/[^\x20-\x7e]/g, ' ').split(/[:(|]/)[0]           // drop decorations, cut at separators
+  const fromH1 = h1.split(/[:(|–—]/)[0].replace(/[^\x20-\x7e]/g, ' ')          // cut at separators, then drop decorations
     .split(/\s+/).filter(Boolean);
   const cut = fromH1.findIndex((w) => /\d/.test(w) || /^[-–—]$/.test(w));     // "300+", "-" tails
   const keyword = (kwOverride || cfgKw || (cut === -1 ? fromH1 : fromH1.slice(0, cut)).join(' ')).trim().toLowerCase();
