@@ -83,7 +83,8 @@ node scripts/new-page/link-candidates.mjs --batch "glitter font generator;y2k te
 | `build-preview.mjs` | 1200×630 SVG drawn by the real engine in the page's own presets; fills `figure.*` |
 | `render-page.mjs` | Lints the config against the audit rules (title length, keyword placement, word count, links exist…) then renders to root + `public/` |
 | `audit.mjs` | Runs `onpage_audit.py`, maps each fix back to the config field that moves it |
-| `inject-backlinks.mjs` | Appends a card to each partner's related-links block **and** to its `links:[…]` in `scripts/build-*.mjs` so rebuilds keep it; idempotent |
+| `inject-backlinks.mjs` | Appends a card to each partner's related-links block **and** to whichever config owns the page (`scripts/build-*.mjs` or `scripts/page-configs/*.json`) so rebuilds keep it; idempotent |
+| `neighbour-scores.mjs` | Audits touched pages against their own keyword; `--save` / `--compare` flags any score drop after a backlink injection |
 | `register.mjs` | sitemap.xml + indexnow-urls.txt (submission stays a manual `npm run indexnow`) |
 
 ## Scope

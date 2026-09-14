@@ -85,7 +85,18 @@ for (const file of from) {
     if (!dry) writeMirrored(file, html.slice(0, at) + CARD[cls]() + html.slice(at));
     r.status = dry ? 'would-inject' : 'injected'; r.container = cls;
   }
-  // Keep the builder config in step with the HTML, whichever of the two was missing the link.
+  // Keep the owning config in step with the HTML, whichever of the two was missing the link.
+  const cfgPath = path.join(root, 'scripts', 'page-configs', file.replace(/\.html$/, '.json'));
+  if (fs.existsSync(cfgPath)) {
+    const pc = JSON.parse(fs.readFileSync(cfgPath, 'utf8'));
+    pc.links = pc.links || [];
+    if (pc.links.some(([, h]) => h === href)) r.config = 'page-config: already listed';
+    else {
+      pc.links.push([name, href, note]);
+      if (!dry) fs.writeFileSync(cfgPath, JSON.stringify(pc, null, 2) + '\n');
+      r.config = `page-config: links[] ${dry ? 'would be ' : ''}updated`;
+    }
+  }
   const slot = builderSlot(file);
   if (slot && slot.error) r.builder = `${slot.builder}: ${slot.error} — add the link to its config by hand`;
   else if (slot && slot.src.slice(slot.open, slot.close).includes(`'${href}'`)) r.builder = `${slot.builder}: already listed`;
