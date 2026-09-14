@@ -1,0 +1,172 @@
+{
+  "keyword": "y2k font generator",
+  "file": "y2k-font-generator.html",
+  "label": "Y2K",
+  "appName": "Y2K Font Generator",
+  "crumb": "Y2K Fonts",
+  "sample": "Y2K Baby",
+  "linkName": "Y2K Font Generator",
+  "linkNote": "Bubble letters, chrome-style bold and star frames from the 2000s.",
+  "title": "Y2K Font Generator – Y2K Text Copy & Paste",
+  "description": "Free Y2K font generator: turn text into glossy bubble letters, double-struck chrome bold, fullwidth spacing and star or sparkle frames. Copy and paste anywhere.",
+  "h1": "Y2K Font Generator",
+  "kicker": "Bubble letters, chrome bold and sparkle frames from the 2000s",
+  "intro": "This Y2K font generator turns any name or phrase into the text styles that defined early-2000s screens: circled bubble letters, double-struck chrome bold, wide fullwidth spacing and star, sparkle and butterfly-style frames. Every result is real Unicode, so the look stays intact when you paste it into a bio, display name, caption or playlist title.",
+  "ids": "circled,double,fullwidth,boldScript,dec-d-s4,circled-d-s4,dec-d-sp3,double-d-s1,fullwidth-d-cu1,boldScript-d-sp1,circled-d-cu1,dec-d-cel3,dec-d-g6,spaced-fw,fullwidth-d-h1,cm-dotAbove",
+  "chips": [
+    [
+      "all",
+      "All"
+    ],
+    [
+      "bubble",
+      "Bubble"
+    ],
+    [
+      "bold",
+      "Chrome"
+    ],
+    [
+      "aesthetic",
+      "Fullwidth"
+    ],
+    [
+      "fancy",
+      "Stars"
+    ],
+    [
+      "cute",
+      "Cute"
+    ]
+  ],
+  "copyHeading": "Y2K Fonts Copy and Paste",
+  "copyBody": "Type once, scan the live previews, and press Copy beside the version you like. The bubble, double-struck and fullwidth letters are separate Unicode characters rather than a CSS effect, which is why a Y2K font generator result survives being pasted into an Instagram bio or a Discord name where normal formatting would be stripped. Star and sparkle frames are ordinary symbols placed around the text, so they travel with it too.",
+  "popularTitle": "Popular Y2K Font Styles",
+  "popular": "Four looks carry the Y2K mood. Circled letters (Ⓨ②Ⓚ) read as glossy bubble text, the closest thing Unicode has to the rounded, inflated lettering of 2000s CD covers and flip-phone wallpapers. Double-struck (𝕐𝟚𝕂) has the doubled strokes of chrome and metallic logo type. Fullwidth letters (Ｙ２Ｋ) spread each character into a square cell, the spacing of early web banners and vaporwave edits. Around any of these, a star frame (⋆｡°✩) or sparkle (✨) adds the glitter that finishes the look.",
+  "howToTitle": "How to Use the Y2K Font Generator",
+  "steps": [
+    [
+      "1. Type your text",
+      "Enter a name, username, caption or short phrase. Digits convert too in the bubble, double-struck and fullwidth styles, which suits Y2K handles like x0x or 2000."
+    ],
+    [
+      "2. Filter by look",
+      "Use the chips to jump between Bubble, Chrome, Fullwidth, Stars and Cute presets instead of scrolling the whole list."
+    ],
+    [
+      "3. Copy and paste",
+      "Press Copy beside a result, then paste it into your bio, display name, playlist title or message."
+    ]
+  ],
+  "socialTitle": "Y2K Fonts for Instagram, TikTok and Discord",
+  "social": "Y2K text works best where one styled line can carry a whole aesthetic: an Instagram bio heading, a TikTok display name, a Discord nickname, a Spotify playlist title or a Tumblr header. Display names and bios accept nearly every character on this page; actual @usernames are stricter, so keep the handle plain and put the Y2K styling in the display-name field. In captions, use a framed bubble line as a title and keep the rest readable.",
+  "limitNote": "screen readers announce circled and double-struck letters as symbols, not as words, so keep anything essential in normal text as well.",
+  "specificTitle": "Y2K Font Generator vs Vaporwave Text",
+  "specific": "Vaporwave text is almost always fullwidth spacing on its own, calm and washed-out. Y2K pushes the opposite way: glossy, bubbly, decorated, with stars and sparkles and a bit of chrome. This Y2K font generator therefore leads with circled and double-struck letters and uses fullwidth as one option among several, while the broader aesthetic fonts page covers dreamy, minimal and gothic moods that have nothing to do with the 2000s.",
+  "source": {
+    "before": "The bubble letters come from the ",
+    "name": "Enclosed Alphanumerics block",
+    "href": "https://www.unicode.org/charts/PDF/U2460.pdf",
+    "after": " of the Unicode Standard, which is why they render on nearly every phone without a font install."
+  },
+  "uniqueH2": "What Makes a Y2K Font Look Y2K",
+  "uniqueBody": [
+    "The Y2K look borrows from a specific moment in design: inflated 3D lettering on pop CD sleeves, chrome and liquid-metal logos, pixel-edged web graphics, and the butterflies, stars and hearts that covered early customisable profiles. Unicode cannot render gradients or bevels, so a Y2K font generator approximates each piece with a character set that suggests it. Circled letters stand in for bubble type, double-struck strokes for chrome, fullwidth cells for pixel-era spacing, and decoration presets supply the sparkle.",
+    "Combining the pieces is where the style comes together. A short handle in circled letters with a ⋆｡°✩ star frame reads unmistakably 2000s. A double-struck name inside ✦ sparkles feels like a metallic logo. Fullwidth text with a ꒰ ꒱ cute bracket lands between Y2K and kawaii. Dot-above marks (Ẏ2̇K̇) give a subtle glitter to plain letters when a frame would be too much for a username field.",
+    "Restraint keeps it wearable. One transformed alphabet plus one decoration is the sweet spot; stacking a frame, sparkles and a combining mark on the same line makes the text hard to read and more likely to be trimmed by an app's character limit. Preview the exact name or phrase you plan to use, since letter shapes and the way Y2K symbols align vary from one style to the next."
+  ],
+  "examplesTitle": "Y2K Text Examples",
+  "examplesIntro": "Paste these into the generator to compare how the same words carry in bubble, chrome and starred versions.",
+  "examples": [
+    [
+      "glossy girl era",
+      "TikTok display name"
+    ],
+    [
+      "x0x Kayla x0x",
+      "Y2K-style handle"
+    ],
+    [
+      "2000s playlist",
+      "Spotify playlist title"
+    ]
+  ],
+  "linksTitle": "Explore Related Font Styles",
+  "links": [
+    [
+      "Aesthetic Fonts",
+      "/aesthetic-fonts.html",
+      "Every aesthetic mood in one place, from dreamy to gothic."
+    ],
+    [
+      "Bubble Text Generator",
+      "/bubble-text-generator.html",
+      "Only circled and bubble letters, with matching frames."
+    ],
+    [
+      "Cute Fonts",
+      "/cute-fonts.html",
+      "Kawaii brackets, tiny letters and soft decorations."
+    ],
+    [
+      "Preppy Fonts",
+      "/preppy-fonts.html",
+      "Polished small caps and collegiate-style text."
+    ],
+    [
+      "Aesthetic Symbols",
+      "/aesthetic-symbols.html",
+      "Stars, sparkles and dividers to pair with your text."
+    ],
+    [
+      "Fancy Text Generator",
+      "/fancy-text-generator.html",
+      "Browse 300+ Unicode styles beyond the Y2K set."
+    ]
+  ],
+  "faqTitle": "Y2K Fonts FAQ",
+  "faqs": [
+    [
+      "What is a Y2K font?",
+      "Online, a Y2K font means text styled like early-2000s design: glossy bubble letters, chrome or metallic bold, wide pixel-era spacing, and stars, sparkles or butterflies around the words. This page recreates those looks with Unicode characters."
+    ],
+    [
+      "Is this Y2K font generator free?",
+      "Yes. It runs in your browser, needs no account or download, and every result can be copied without limits."
+    ],
+    [
+      "Can I use Y2K text in my Instagram bio?",
+      "Yes. Copy a result and paste it into your bio or display name. Instagram accepts circled, double-struck and fullwidth letters as well as star and sparkle symbols."
+    ],
+    [
+      "Why do some letters show as boxes?",
+      "The device or app is missing a font for that character. Circled and fullwidth letters are widely supported; if a rare symbol breaks, switch to a plainer preset with the same sample."
+    ],
+    [
+      "Does this work for usernames?",
+      "Usually only in display names and bios. Most platforms restrict actual @handles to plain letters, numbers and underscores."
+    ],
+    [
+      "Are these real fonts I can download?",
+      "No. The generator produces Unicode characters that resemble Y2K lettering, which is what lets them survive copy and paste. For a printable typeface, use a licensed font file."
+    ],
+    [
+      "What is the difference between Y2K and vaporwave text?",
+      "Vaporwave is usually fullwidth spacing alone, calm and faded. Y2K is glossier and busier: bubble or chrome letters plus stars, sparkles and hearts."
+    ]
+  ],
+  "figure": {
+    "styles": [
+      "circled-d-s4",
+      "double-d-s1",
+      "fullwidth-d-cu1"
+    ],
+    "sample": "Y2K Baby",
+    "tagline": "BUBBLE · CHROME · SPARKLE",
+    "alt": "Y2K Baby written with the Y2K font generator as star-framed bubble letters, double-struck chrome bold and fullwidth text in cute brackets",
+    "src": "/assets/previews/y2k-font-generator.svg",
+    "width": 1200,
+    "height": 630,
+    "caption": "“Y2K Baby” rendered by the Y2K Font Generator in Circled Star Dots, Double Struck Star Wrap, Aesthetic Wide Cute Curl ꒰꒱ presets"
+  }
+}
