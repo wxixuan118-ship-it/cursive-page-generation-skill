@@ -51,8 +51,10 @@ mechanically before a build; the audit checks them for real after):
 node scripts/new-page/link-candidates.mjs "<keyword>" --terms "<4–8 neighbouring concepts>"
 ```
 
-- `collision` non-empty → an existing page already targets this intent. Stop and tell the
-  user; a second page would cannibalise the first. Offer to improve the existing page instead.
+- `collision` or `sameIntent` non-empty → an existing page already targets this intent
+  (`sameIntent` catches "y2k text generator" against `y2k-font-generator.html`, where the
+  phrase never appears verbatim). Stop and tell the user; a second page would cannibalise
+  the first. Offer to improve the existing page instead.
 - Pick **6 link partners** from `candidates`: the parent hub (`aesthetic-fonts`,
   `fancy-text-generator`, or `cursive-fonts` — whichever the theme belongs under), plus
   siblings whose mood overlaps. Prefer `container != null` so the backlink is a script edit.
@@ -139,6 +141,36 @@ touched page with its own keyword (`audit.mjs <file>.html -k "<its keyword>"`, k
 neighbour's score, and if it did, the card was appended in the wrong place.
 
 Do not run `npm run indexnow` yourself; the queue is registered, submission happens on deploy.
+
+## Several keywords at once
+
+The user may hand over a list — in the message, a txt, or a column of the TDH spreadsheet.
+Treat it as one job with a plan step in front, not as N independent runs:
+
+1. **Plan first, build nothing.**
+   ```bash
+   node scripts/new-page/link-candidates.mjs --batch "kw1;kw2;kw3"
+   ```
+   `collideWithEachOther` lists pairs that are one intent ("glitter font generator" /
+   "glitter text") — merge each pair into one page and say which phrase you kept.
+   `collideWithSite` lists keywords an existing page already owns — drop those and say so.
+   Show the user the resulting build list (keyword → slug, merged/dropped items with the
+   reason) and get a nod before writing anything; a wrong merge is expensive to undo after
+   six pages link to it.
+2. **Build in the order given, one full pass each** (steps 1–6 above). `link-candidates`
+   reads the site from disk, so page 2 can pick page 1 as a partner if they are siblings —
+   do that when the moods overlap; new pages in one batch are usually each other's best
+   neighbours.
+3. **Close the loop backwards.** Page 1 was built before page 2 existed, so after the last
+   page, run `inject-backlinks` for each later page with `--from` the earlier siblings it
+   should have been linked from, then `register.mjs --touch` those. Re-audit the touched
+   pages once at the end rather than after every injection.
+4. **One report**, one line per page in the format below, followed by the merge/drop
+   decisions and the cross-link matrix. A page that stopped at round 3 gets its diagnosis in
+   the same list — do not leave it out because the others passed.
+
+Budget note: each page is a full write. Past 6–8 keywords, suggest splitting into batches
+so the user can review the first set before the copy style is locked in for the rest.
 
 ## Report back
 

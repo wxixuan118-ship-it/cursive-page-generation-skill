@@ -64,11 +64,21 @@ node scripts/new-page/inject-backlinks.mjs scripts/page-configs/y2k-font-generat
 node scripts/new-page/register.mjs        scripts/page-configs/y2k-font-generator.json --touch aesthetic-fonts.html,cute-fonts.html
 ```
 
+## Several keywords
+
+Plan first, then build one by one, then close the link loop backwards — see
+"Several keywords at once" in SKILL.md. The plan step:
+
+```bash
+node scripts/new-page/link-candidates.mjs --batch "glitter font generator;y2k text generator;glitter text"
+# → which keywords collide with each other (merge) and which an existing page already owns (drop)
+```
+
 ## What each script does
 
 | Script | Role |
 |---|---|
-| `link-candidates.mjs` | Ranks existing pages as link partners by word overlap; flags keyword collisions |
+| `link-candidates.mjs` | Ranks existing pages as link partners by word overlap; flags keyword collisions; `--batch` checks a list against itself and the site |
 | `engine-styles.mjs` | Browse / search / validate `style-engine.js` preset ids with rendered samples |
 | `build-preview.mjs` | 1200×630 SVG drawn by the real engine in the page's own presets; fills `figure.*` |
 | `render-page.mjs` | Lints the config against the audit rules (title length, keyword placement, word count, links exist…) then renders to root + `public/` |
