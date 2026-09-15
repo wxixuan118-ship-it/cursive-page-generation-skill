@@ -17,7 +17,7 @@
 // them is a script edit rather than a manual one. The output is a shortlist for
 // Claude to choose from, not a decision.
 
-import { sitePages, contentTokens, variants, slugify } from './lib.mjs';
+import { sitePages, contentTokens, keywordTokens, variants, slugify } from './lib.mjs';
 
 const args = process.argv.slice(2);
 
@@ -25,7 +25,7 @@ const args = process.argv.slice(2);
 // ("y2k text generator" vs existing y2k-font-generator.html) is the same intent
 // even though the phrase never appears verbatim.
 function nearMatches(keyword, pages) {
-  const distinct = contentTokens(keyword);
+  const distinct = keywordTokens(keyword);
   if (!distinct.length) return [];
   return pages.filter((p) => {
     const bag = new Set([...contentTokens(p.h1), ...p.file.replace('.html', '').split('-')].flatMap((t) => [...variants(t)]));
@@ -36,13 +36,14 @@ function nearMatches(keyword, pages) {
 if (args.includes('--batch')) {
   const kws = (args[args.indexOf('--batch') + 1] || '').split(/[;\n]/).map((k) => k.trim()).filter(Boolean);
   const pages = sitePages();
-  const info = kws.map((k) => ({ keyword: k, slug: slugify(k), words: new Set(contentTokens(k).flatMap((t) => [...variants(t)])) }));
+  const info = kws.map((k) => ({ keyword: k, slug: slugify(k), words: new Set(keywordTokens(k).flatMap((t) => [...variants(t)])) }));
   const pairs = [];
   for (let i = 0; i < info.length; i++) for (let j = i + 1; j < info.length; j++) {
     const a = info[i], b = info[j];
-    const shared = contentTokens(a.keyword).filter((w) => b.words.has(w));
-    const distinctiveA = [...contentTokens(a.keyword)], distinctiveB = [...contentTokens(b.keyword)];
-    const allShared = distinctiveA.every((w) => b.words.has(w)) || distinctiveB.every((w) => a.words.has(w));
+    const shared = keywordTokens(a.keyword).filter((w) => b.words.has(w));
+    const distinctiveA = keywordTokens(a.keyword), distinctiveB = keywordTokens(b.keyword);
+    const allShared = (distinctiveA.length && distinctiveA.every((w) => b.words.has(w)))
+      || (distinctiveB.length && distinctiveB.every((w) => a.words.has(w)));
     if (a.slug === b.slug || allShared) pairs.push({ a: a.keyword, b: b.keyword, reason: a.slug === b.slug ? 'same slug' : 'one keyword contains all distinctive words of the other', shared });
   }
   const existing = info.map((k) => ({ keyword: k.keyword, sameIntent: nearMatches(k.keyword, pages) })).filter((k) => k.sameIntent.length);
@@ -55,7 +56,7 @@ if (!keyword) { console.error('usage: link-candidates.mjs "<keyword>" [--top N]'
 const top = Number(args[args.indexOf('--top') + 1]) || 12;
 
 const slug = slugify(keyword);
-const kwVariants = new Set(contentTokens(keyword).flatMap((t) => [...variants(t)]));
+const kwVariants = new Set(keywordTokens(keyword).flatMap((t) => [...variants(t)]));
 const termsArg = args[args.indexOf('--terms') + 1];
 const extraVariants = new Set(args.includes('--terms')
   ? termsArg.split(',').flatMap((t) => contentTokens(t)).flatMap((t) => [...variants(t)])

@@ -12,7 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { renderClusterPage } from '../lib/cluster-template.mjs';
-import { root, loadEngine, readConfig, writeMirrored, stripTags, countWords, phraseCount, contentTokens, variants, slugify } from './lib.mjs';
+import { root, loadEngine, readConfig, writeMirrored, stripTags, countWords, phraseCount, lightTokens as contentTokens, variants, slugify } from './lib.mjs';
 
 const args = process.argv.slice(2);
 const cfg = readConfig(args.find((a) => !a.startsWith('--')) || '');

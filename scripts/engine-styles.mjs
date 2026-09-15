@@ -46,6 +46,10 @@ if (args.includes('--cats')) {
   process.exit(0);
 }
 
-const list = engine.filter(opt('--cat') || 'all', opt('--search') || '');
+// engine.filter() lower-cases the query but not the ids, so a camelCase id
+// like smallCaps never matches "smallcaps"; do the match here instead.
+const q = (opt('--search') || '').toLowerCase();
+const list = engine.filter(opt('--cat') || 'all', '')
+  .filter((s) => !q || s.id.toLowerCase().includes(q) || s.name.toLowerCase().includes(q) || s.tags.toLowerCase().includes(q));
 for (const s of list) console.log(`${s.id.padEnd(28)} ${s.cats.padEnd(30)} ${s.fn(sample)}`);
 console.error(`\n${list.length} presets`);

@@ -48,9 +48,21 @@ export function tokens(text) {
   return (text.toLowerCase().match(/[a-z0-9][a-z0-9'’-]*/g) || []);
 }
 
+// Two stop lists. contentTokens() drops the site's own vocabulary (font,
+// generator, copy, paste…) so link scoring keys on what makes a page distinct.
+// keywordTokens() keeps those words, for keywords like "copy and paste fonts"
+// where they are the whole keyword; it only drops grammatical filler.
 const STOP = new Set('a an the and or of for to in on with your you is are it this that these those free copy paste generator generators text font fonts online tool tools'.split(' '));
+const STOP_LIGHT = new Set('a an the and or of for to in on with your you is are it this that these those free online'.split(' '));
 export function contentTokens(text) {
   return tokens(text).filter((t) => t.length > 1 && !STOP.has(t));
+}
+export function lightTokens(text) {
+  return tokens(text).filter((t) => t.length > 1 && !STOP_LIGHT.has(t));
+}
+export function keywordTokens(text) {
+  const strict = contentTokens(text);
+  return strict.length ? strict : tokens(text).filter((t) => t.length > 1 && !STOP_LIGHT.has(t));
 }
 
 /** Cheap morphological variants, mirrors the audit script. */
